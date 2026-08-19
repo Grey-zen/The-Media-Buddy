@@ -2,10 +2,8 @@
 
 import Link from "next/link";
 import {
+  ArrowRight,
   ArrowUpRight,
-  Facebook,
-  Instagram,
-  Linkedin,
   Mail,
   MapPin,
   Phone,
@@ -100,18 +98,18 @@ const legalLinks = [
 const socialLinks = [
   {
     label: "Facebook",
+    shortLabel: "f",
     href: "#",
-    icon: Facebook,
   },
   {
     label: "Instagram",
+    shortLabel: "ig",
     href: "#",
-    icon: Instagram,
   },
   {
     label: "LinkedIn",
+    shortLabel: "in",
     href: "#",
-    icon: Linkedin,
   },
 ];
 
@@ -170,7 +168,6 @@ export function Footer() {
             sm:py-20
           "
         >
-          {/* CTA glow */}
           <div
             aria-hidden="true"
             className="
@@ -310,11 +307,7 @@ export function Footer() {
             <div className="max-w-sm">
               <Link
                 href="/"
-                className="
-                  inline-flex
-                  items-center
-                  gap-2.5
-                "
+                className="inline-flex items-center gap-2.5"
               >
                 <span
                   className="
@@ -472,40 +465,36 @@ export function Footer() {
 
               {/* Social */}
               <div className="mt-7 flex items-center gap-2">
-                {socialLinks.map((social) => {
-                  const Icon = social.icon;
-
-                  return (
-                    <a
-                      key={social.label}
-                      href={social.href}
-                      aria-label={social.label}
-                      className="
-                        flex
-                        h-9
-                        w-9
-                        items-center
-                        justify-center
-                        rounded-full
-                        border
-                        border-border
-                        bg-background
-                        text-muted
-                        transition-all
-                        duration-300
-                        hover:-translate-y-0.5
-                        hover:border-brand/25
-                        hover:bg-brand-soft
-                        hover:text-brand
-                      "
-                    >
-                      <Icon
-                        className="h-4 w-4"
-                        strokeWidth={1.7}
-                      />
-                    </a>
-                  );
-                })}
+                {socialLinks.map((social) => (
+                  <a
+                    key={social.label}
+                    href={social.href}
+                    aria-label={social.label}
+                    className="
+                      flex
+                      h-9
+                      w-9
+                      items-center
+                      justify-center
+                      rounded-full
+                      border
+                      border-border
+                      bg-background
+                      text-[10px]
+                      font-bold
+                      uppercase
+                      text-muted
+                      transition-all
+                      duration-300
+                      hover:-translate-y-0.5
+                      hover:border-brand/25
+                      hover:bg-brand-soft
+                      hover:text-brand
+                    "
+                  >
+                    {social.shortLabel}
+                  </a>
+                ))}
               </div>
             </div>
 
@@ -721,13 +710,7 @@ export function Footer() {
             sm:justify-between
           "
         >
-          <p
-            className="
-              text-[10px]
-              leading-5
-              text-muted
-            "
-          >
+          <p className="text-[10px] leading-5 text-muted">
             © {new Date().getFullYear()} The Media Buddy.
             All rights reserved.
           </p>
