@@ -51,7 +51,7 @@ export function Navbar({ onMenuOpen }: NavbarProps) {
         transition-all duration-500
         ${
           scrolled
-            ? "px-3 pt-3 sm:px-5"
+            ? "px-3 pt-0 sm:px-5"
             : "px-0 pt-0"
         }
       `}
