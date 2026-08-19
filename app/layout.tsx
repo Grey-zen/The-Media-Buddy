@@ -4,6 +4,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 
 import { ThemeProvider } from "@/components/layout/ThemeProvider";
+import { SiteNavigation } from "@/components/layout/SiteNavigation";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -18,7 +19,7 @@ export const metadata: Metadata = {
   },
 
   description:
-    "The Media Buddy is a professional digital marketing agency providing SEO, Google Ads, Meta Ads, social media marketing, website development and digital growth solutions.",
+    "The Media Buddy provides professional digital marketing, advertising, SEO, social media and web development solutions designed to help businesses grow online.",
 
   keywords: [
     "digital marketing agency",
@@ -61,7 +62,10 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${inter.variable} antialiased`}>
-        <ThemeProvider>{children}</ThemeProvider>
+        <ThemeProvider>
+          <SiteNavigation />
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );
